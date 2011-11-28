@@ -7,3 +7,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function(){
+
+})
+
+function person_info_collect(){
+    var main_tabs =  $('#main_tabs');
+    if(main_tabs.tabs('exists','人员信息采集')){
+       main_tabs.tabs('select','人员信息采集');
+    }else{
+      main_tabs.tabs('add',{
+        title:'人员信息采集',
+        href:'/person/new',
+        closable:true
+      });
+    }
+
+}

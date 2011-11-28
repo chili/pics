@@ -1,23 +1,89 @@
-<div region="west" split="true" title="功能菜单" style="width:250px;height:100%;" iconCls="icon-help">
-  <div id="main_menu" class="easyui-accordion" style="height:100%;" fit="true">
-    <div title="数据录入">
-       <a href="javascript:person_info_collect();">人员信息采集</a>
-    </div>
-    <div title="数据查询" selected="true">
-        content2
-    </div>
-    <div title="数据统计">
-        content3
-    </div>
-    <div title="系统管理">
-        content3
-    </div>
-  </div>
-</div>
-<div region="center"  style="padding:5px;background:#eee;">
-  <div id="main_tabs" class="easyui-tabs" fit="true">
-    <div title="首页">
-    </div>
-  </div>
+<div  class="easyui-panel" title="基本信息采集" fit="true">
+<table width="100%">
+  <tr>
+    <td class="label"><label>档案编号:</label></td>
+    <td></td>
+    <td class="label"><label>姓名:</label></td>
+    <td><%=text_field @person,:xm%></td>
+    <td class="label"><label>性别:</label></td>
+    <td></td>
+    <td class="label"><label>出身日期:</label></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><label>国籍:</label></td>
+    <td></td>
+    <td><label>民族:</label></td>
+    <td></td>
+    <td><label>别名:</label></td>
+    <td></td>
+    <td><label>卡号:</label></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><label>人员类别:</label></td>
+    <td></td>
+    <td><label>案件类别1:</label></td>
+    <td></td>
+    <td><label>案件类别2:</label></td>
+    <td></td>
+    <td><label>案件类别3:</label></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><label>证件类别:</label></td>
+    <td></td>
+    <td><label>证件号码:</label></td>
+    <td colspan="5"></td>
+  </tr>
+  <tr>
+    <td><label>户籍地:</label></td>
+    <td></td>
+    <td><label>现住地:</label></td>
+    <td colspan="5"></td>
+  </tr>
+  <tr>
+    <td><label>备注:</label></td>
+    <td colspan="7"></td>
+  </tr>
+  <tr>
+    <td colspan="8"><hr/></td>
+  </tr>
+   <tr>
+    <td><label>捺印单位代码:</label></td>
+    <td colspan="7"></td>
+  </tr>
+   <tr>
+    <td><label>捺印单位名称:</label></td>
+    <td colspan="3"></td>
+    <td><label>捺印人:</label></td>
+    <td></td>
+    <td><label>捺印日期:</label></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="8"><hr/></td>
+  </tr>
+  <tr>
+    <td><label>DNA编号:</label></td>
+    <td></td>
+    <td><label>虹膜编号:</label></td>
+    <td></td>
+    <td><label>声纹编号:</label></td>
+    <td colspan="3"></td>
+  </tr>
+  <tr>
+    <td><label>身高(mm):</label></td>
+    <td></td>
+    <td><label>体重(kg):</label></td>
+    <td></td>
+    <td><label>足长(mm):</label></td>
+    <td colspan="3"></td>
+  </tr>
+</table>
 
+<div style="position:absolute;bottom: 10px">
+    <a href="#" id="read_height_btn" iconCls="icon-add" class="easyui-linkbutton">读取身高</a>
+    <a href="#" id="read_ic_btn" iconCls="icon-add" class="easyui-linkbutton">读取身份证</a>
+</div>
 </div>

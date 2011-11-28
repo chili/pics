@@ -1,4 +1,8 @@
 Pics::Application.routes.draw do
+  root :to => "welcome#index"
+  resources:person,:as => "people"
+  match ':controller(/:action(/:id(.:format)))'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
