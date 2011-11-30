@@ -9,7 +9,11 @@
 //= require_tree .
 
 $(document).ready(function(){
-
+   $('#main_tabs').tabs({
+    onBeforeClose:function(title){
+        GT2ICROCX.Stop();
+    }
+  });
 })
 
 function person_info_collect(){
@@ -20,8 +24,7 @@ function person_info_collect(){
       main_tabs.tabs('add',{
         title:'人员信息采集',
         href:'/person/new',
-        closable:true
+          closable:true
       });
     }
-
 }

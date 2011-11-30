@@ -8,15 +8,18 @@
 .easyui-panel{
     background-color: #ccffff;
 }
-td,label{
+td.label{
     text-align: right;
-    font-weight: bold;
 }
 
-td .field{
+td.field{
     text-align: left;
 }
 
 td.label{
     width:100px;
+}
+
+.select {
+    width:200px;
 }

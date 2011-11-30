@@ -1,0 +1,178 @@
+  <script type="text/javascript">
+    function MyGetData(){
+        document.getElementById("person_xm").value =  GT2ICROCX.NameL;
+        $('#person_xb').val(GT2ICROCX.Sex);
+        $('#person_mz').val(GT2ICROCX.Nation);
+        $('#person_csrq').val(GT2ICROCX.Born);
+        $('#person_hjd').val(GT2ICROCX.Address);
+        $('#person_zjhm').val(GT2ICROCX.CardNo);
+    }
+
+    function MyGetErrMsg(){
+         document.getElementById("status").innerHTML=GT2ICROCX.ErrMsg;
+    }
+
+    function ReadCard(){
+        if (GT2ICROCX.GetState() == 0){
+	        GT2ICROCX.ReadCard();
+        }
+    }
+  </script>
+  <div class="easyui-panel" title="基本信息采集" fit="true">
+    <div>
+     <OBJECT id="GT2ICROCX" Name="GT2ICROCX" width="102" height="126"
+			CLASSID="CLSID:220C3AD1-5E9D-4B06-870F-E34662E2DFEA"
+			CODEBASE="IdrOcx.cab#version=1,0,1,2">
+     </OBJECT>
+      <span id="status"></span>
+   </div>
+<%= form_for :person do|f|%>
+<table width="100%">
+  <tbody>
+  <tr>
+    <td class="label">档案编号:</td>
+    <td>
+      <%=f.text_field :id%>
+    </td>
+    <td class="label">姓名:</td>
+    <td><%=f.text_field :xm%></td>
+    <td class="label">性别:</td>
+    <td>
+     <%=f.select :xb,$application["DD_XB"].invert %>
+    </td>
+    <td class="label">出身日期:</td>
+    <td>
+       <%=f.text_field :csrq%>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">国籍:</td>
+    <td>
+      <%=f.select :gj,$application["DD_GJ"].invert,options = {},html_options={:class=>"select"}%>
+    </td>
+    <td class="label">民族:</td>
+    <td>
+      <%=f.select :mz,$application["DD_MZ"].invert%>
+    </td>
+    <td class="label">别名:</td>
+    <td>
+       <%=f.text_field :bm%>
+    </td>
+    <td class="label">卡号:</td>
+    <td>
+       <%=f.text_field :kh%>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">人员类别:</td>
+    <td>
+      <%=f.select :rylb,$application["DD_RYLB"].invert%>
+    </td>
+    <td class="label">案件类别1:</td>
+    <td>
+      <%=f.select :ajlb1,$application["DD_AJLB"].invert,options = {},html_options={:class=>"select"}%>
+    </td>
+    <td class="label">案件类别2:</td>
+    <td>
+      <%=f.select :ajlb2,$application["DD_AJLB"].invert,options = {},html_options={:class=>"select"}%>
+    </td>
+    <td class="label">案件类别3:</td>
+    <td>
+      <%=f.select :ajlb3,$application["DD_AJLB"].invert,options = {},html_options={:class=>"select"}%>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">证件类别:</td>
+    <td>
+      <%=f.select :zjlb,$application["DD_ZJLX"].invert%>
+    </td>
+    <td class="label">证件号码:</td>
+    <td colspan="5">
+       <%=f.text_field :zjhm%>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">户籍地:</td>
+    <td>
+       <%=f.text_field :hjd%>
+    </td>
+    <td class="label">现住地:</td>
+    <td colspan="5">
+       <%=f.text_field :xzd%>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">备注:</td>
+    <td colspan="7">
+       <%=f.text_area :bz,html_options={:rows=>"5",:cols=>"100"}%>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="8"><hr/></td>
+  </tr>
+   <tr>
+    <td class="label">捺印单位代码:</td>
+    <td colspan="7">
+       <%=f.text_field :nydwdm%>
+    </td>
+  </tr>
+   <tr>
+    <td class="label">捺印单位名称:</td>
+    <td colspan="3">
+       <%=f.text_field :nydwmc%>
+    </td>
+    <td class="label">捺印人:</td>
+    <td>
+       <%=f.text_field :nyr%>
+    </td>
+    <td class="label">捺印日期:</td>
+    <td>
+       <%=f.text_field :nyrq%>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="8"><hr/></td>
+  </tr>
+  <tr>
+    <td class="label">DNA编号:</td>
+    <td>
+       <%=f.text_field :dna_id%>
+    </td>
+    <td class="label">虹膜编号:</td>
+    <td>
+       <%=f.text_field :hm_id%>
+    </td>
+    <td class="label">声纹编号:</td>
+    <td colspan="3">
+       <%=f.text_field :sw_id%>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">身高(mm):</td>
+    <td>
+      <%=f.text_field :sg%>
+    </td>
+    <td class="label">体重(kg):</td>
+    <td>
+      <%=f.text_field :tz%>
+    </td>
+    <td class="label">足长(mm):</td>
+    <td colspan="3">
+        <%=f.text_field :zc%>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<% end %>
+<div style="position:absolute;bottom: 10px">
+    <a href="" id="read_height_btn" iconCls="icon-add" class="easyui-linkbutton">读取身高</a>
+    <a href="javascript:ReadCard();" id="read_ic_btn" iconCls="icon-add" class="easyui-linkbutton">读取身份证</a>
+</div>
+</div>
+<script language="javascript" for="GT2ICROCX" event="GetData">//设置回调函数
+  MyGetData()
+</script>
+
+<script language="javascript" for="GT2ICROCX" event="GetErrMsg">//设置回调函数
+  MyGetErrMsg()
+</script>

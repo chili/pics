@@ -2,6 +2,6 @@ require "pics_model"
 class PersonController < ApplicationController
   def new
     @person = Person.new
-    @person.xm = "xxxxxxxxxxxxxx"
+     render :partial => 'new'
   end
 end
